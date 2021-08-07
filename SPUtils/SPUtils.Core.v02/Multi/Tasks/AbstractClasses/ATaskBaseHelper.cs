@@ -1,6 +1,6 @@
 ﻿namespace SPUtils.Core.v02.Multi.Tasks.AbstractClasses
 {
-    public abstract class ATaskImplementationHelper
+    public abstract class ATaskBaseHelper
     {
         public System.Threading.Tasks.Task mMainTask = null;
         public bool TaskStayAliveFlag = true;

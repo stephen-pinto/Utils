@@ -4,7 +4,7 @@ namespace SPUtils.Core.v02.Multi.Threads.AbstractClasses
 {
     using Common;
 
-    public abstract class AThreadImplementationHelper_2
+    public abstract class AThreadBaseHelper_2
     {
         //Local default constants
         private const int DEFAULT_THREAD_INTERVAL = 1000;
@@ -27,7 +27,7 @@ namespace SPUtils.Core.v02.Multi.Threads.AbstractClasses
         public delegate void ThreadFrozeOrTerminatedEvntHndler(object info1, object info2);
         public event ThreadFrozeOrTerminatedEvntHndler Event_ThreadTerminatedOrFroze;
 
-        public AThreadImplementationHelper_2()
+        public AThreadBaseHelper_2()
         {
         }
 

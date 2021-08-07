@@ -4,9 +4,9 @@
     /// This is a basic implementation helper for threads. 
     /// For more detailed version check the next version of the helper.
     /// </summary>
-    public abstract class AThreadImplementationHelper_1
+    public abstract class AThreadBaseHelper_1
     {
-        public System.Threading.Thread mMainThread = null;
+        public System.Threading.Thread baseThread = null;
         public bool ThreadActive = false;
         private bool ThreadStayAliveFlag = true;
 
@@ -14,17 +14,17 @@
         {
             ThreadStayAliveFlag = true;
             ThreadActive = true;
-            mMainThread = new System.Threading.Thread(CoreThreadMethod);
-            mMainThread.IsBackground = true;
-            mMainThread.Start();
+            baseThread = new System.Threading.Thread(CoreThreadMethod);
+            baseThread.IsBackground = true;
+            baseThread.Start();
         }
 
         public void StopThread()
         {
             ThreadActive = false;
-            try { mMainThread.Abort(); }
+            try { baseThread.Abort(); }
             catch { };
-            mMainThread = null;
+            baseThread = null;
             ThreadStayAliveFlag = false;
         }
 
