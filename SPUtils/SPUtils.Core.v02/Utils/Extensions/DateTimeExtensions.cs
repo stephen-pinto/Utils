@@ -6,8 +6,6 @@ namespace SPUtils.Core.v02.Utils.Extensions
 {
     public static class DateTimeExtenstions
     {
-        public const string FIREBIRD_TIMESTAMP_FORMAT = @"dd.MM.yyyy, HH:mm:ss.000";
-
         public static int WeekDayNo(this DateTime timestamp)
         {
             //Note: If its a Sunday then we mark it as 7
@@ -62,11 +60,6 @@ namespace SPUtils.Core.v02.Utils.Extensions
                 return new System.DateTime(timestamp.Year, timestamp.Month, 1);
 
             return timestamp.AddDays(-1 * diff).Date;
-        }
-
-        public static string ToFirebirdTimestamp(this DateTime timestamp)
-        {
-            return timestamp.ToString(FIREBIRD_TIMESTAMP_FORMAT);
         }
     }
 }

@@ -21,17 +21,6 @@ namespace SPUtils.Core.v02.Services.Interop
         /// <exception cref="System.ComponentModel.Win32Exception"></exception>
         public static void Mount(string remoteUNC, string driveName, string userName, string password, bool promptUser)
         {
-            #region TRY_BLOCK_REGION
-#if DEBUG
-                /*
-                #endif
-                try
-                {
-                #if DEBUG
-                */
-#endif
-            #endregion
-
             NETRESOURCE networkResource = new NETRESOURCE();
             networkResource.dwType = Mpr32.RESOURCETYPE_DISK;
             networkResource.lpLocalName = driveName;
@@ -62,20 +51,6 @@ namespace SPUtils.Core.v02.Services.Interop
             {
                 throw new System.ComponentModel.Win32Exception((int)result);
             }
-
-            #region CATCH_BLOCK_REGION
-#if DEBUG
-                /*
-                #endif              
-                }
-                catch(Exception)
-                {
-                    throw;
-                }  
-                #if DEBUG
-                */
-#endif
-            #endregion             
         }
 
         /// <summary>
@@ -84,36 +59,11 @@ namespace SPUtils.Core.v02.Services.Interop
         /// <param name="driveName">Name of the drive.</param>
         public static void Unmount(string driveName)
         {
-            #region TRY_BLOCK_REGION
-#if DEBUG
-            /*
-                #endif
-                try
-                {
-                #if DEBUG
-                */
-#endif
-            #endregion
-
             uint result = Mpr32.WNetCancelConnection2(driveName, Mpr32.CONNECT_UPDATE_PROFILE, false);
             if (result != BaseAPI.NO_ERROR)
             {
-
+                throw new Exception("Some error occured when unmounting drive");
             }
-
-            #region CATCH_BLOCK_REGION
-#if DEBUG
-            /*
-                #endif              
-                }
-                catch(Exception)
-                {
-                    throw;
-                }  
-                #if DEBUG
-                */
-#endif
-            #endregion         
         }
     }
 }
