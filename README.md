@@ -1,4 +1,7 @@
 # Utils
+This repo holds all the utility projects.
+
+## SPUtils
 This project has a set of helper libraries for day to day work.
 It serves as a utility project and provides helpers for below tasks:
 1. Asynchrounous helpers and template(abstract) helpers for a basic timer or task based application with their boilerplate code.
